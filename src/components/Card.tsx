@@ -25,7 +25,7 @@ const CardContainer = styled.div<CardProps>`
   transition: background-color 0.3s, transform 0.3s;
 
   &:hover {
-    background-color: ${({ backgroundColor }) => backgroundColor || '#f0f0f0'};
+    background-color: ${({ backgroundColor }) => backgroundColor ? backgroundColor : '#f0f0f0'};
     transform: ${({ disabled }) => (disabled ? 'none' : 'scale(1.05)')};
   }
 `;

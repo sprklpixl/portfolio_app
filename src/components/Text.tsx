@@ -7,7 +7,7 @@ interface TextProps {
   style?: React.CSSProperties;
 }
 
-const StyledText = styled.div<TextProps>`
+const StyledText = styled.div`
   padding: 12px;
 `;
 

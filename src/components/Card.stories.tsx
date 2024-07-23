@@ -1,4 +1,4 @@
-import React from 'react';
+//import React from 'react';
 import { Meta, StoryFn } from '@storybook/react';
 import { within, userEvent } from '@storybook/testing-library';
 import { expect } from '@storybook/jest';
@@ -23,15 +23,19 @@ Default.args = {
 
 Default.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
-  const card = canvas.getByText('Project Name').parentElement;
+  const card = canvas.getByText('Project Name').parentElement as HTMLElement;
 
-  // Simulate hover
-  await userEvent.hover(card);
-  await expect(card).toHaveStyle('transform: scale(1.05)');
+  if (card) {
+    // Simulate hover
+    await userEvent.hover(card);
+    await expect(card).toHaveStyle('transform: scale(1.05)');
 
-  // Simulate mouse out
-  await userEvent.unhover(card);
-  await expect(card).toHaveStyle('transform: scale(1)');
+    // Simulate mouse out
+    await userEvent.unhover(card);
+    await expect(card).toHaveStyle('transform: scale(1)');
+  } else {
+    throw new Error('Card element not found');
+  }
 };
 
 export const Hover = Template.bind({});
@@ -46,13 +50,17 @@ Hover.args = {
 
 Hover.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
-  const card = canvas.getByText('Hover Effect Test').parentElement;
+  const card = canvas.getByText('Hover Effect Test').parentElement as HTMLElement;
 
-  // Simulate hover
-  await userEvent.hover(card);
-  await expect(card).toHaveStyle('transform: scale(1.05)');
+  if (card) {
+    // Simulate hover
+    await userEvent.hover(card);
+    await expect(card).toHaveStyle('transform: scale(1.05)');
 
-  // Simulate mouse out
-  await userEvent.unhover(card);
-  await expect(card).toHaveStyle('transform: scale(1)');
+    // Simulate mouse out
+    await userEvent.unhover(card);
+    await expect(card).toHaveStyle('transform: scale(1)');
+  } else {
+    throw new Error('Card element not found');
+  }
 };
