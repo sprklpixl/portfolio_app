@@ -15,6 +15,16 @@ Default.args = {
   name: 'sample-radio',
   value: 'sample',
   checked: false,
-  onChange: () => alert('Radio button clicked!'),
+  //onChange: () => alert('Radio button clicked!'),
   disabled: false,
+};
+
+export const Disabled = Template.bind({});
+Default.args = {
+  label: 'Sample Radio',
+  name: 'sample-radio',
+  value: 'sample',
+  checked: false,
+  //onChange: () => alert('Radio button clicked!'),
+  disabled: true,
 };
